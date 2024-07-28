@@ -17,6 +17,7 @@ const LocalStrategy = require("passport-local");
 const employeeRoutes = require("./routes/employee");
 const ticketRoutes = require("./routes/ticket");
 const adminRoutes = require("./routes/adminRoutes");
+const authRoutes = require("./routes/auth");
 const ExpressError = require("./utils/ExpressError");
 const cors = require("cors");
 const wrapAsync = require("./utils/wrapAsync");
@@ -95,7 +96,8 @@ passport.deserializeUser(async (data, done) => {
 // Route handler
 app.use(employeeRoutes);
 app.use(ticketRoutes);
-app.use(adminRoutes);
+app.use("/api/auth", adminRoutes);
+app.use("/api/auth", authRoutes);
 
 // Logout route for every user
 app.get(
