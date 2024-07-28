@@ -23,7 +23,7 @@ const cors = require("cors");
 const wrapAsync = require("./utils/wrapAsync");
 
 // Varibales
-const PORT = 4000;
+const PORT = process.env.PORT;
 const mongoURi = process.env.MONGODB_URI;
 
 const secret = "thisisnotagoodsecret";
