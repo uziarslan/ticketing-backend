@@ -2,9 +2,6 @@ const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 const Employee = mongoose.model("Employee");
 const { MailtrapClient } = require("mailtrap");
-const dotenv = require("dotenv");
-
-dotenv.config();
 
 const TOKEN = process.env.MAIL_TRAP_TOKEN;
 const ENDPOINT = process.env.MAILTRAP_END_POINT;
