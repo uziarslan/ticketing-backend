@@ -9,6 +9,10 @@ const commentSchema = new mongoose.Schema({
 });
 
 const ticketSchema = new mongoose.Schema({
+  _id: {
+    type: String,
+    require: true,
+  },
   startDate: {
     type: Date,
     default: Date.now,
@@ -18,7 +22,7 @@ const ticketSchema = new mongoose.Schema({
     default: "opened",
     enum: ["opened", "closed", "processing"],
   },
-  rasisedBy: {
+  raisedBy: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Employee",
   },
@@ -29,6 +33,9 @@ const ticketSchema = new mongoose.Schema({
   content: {
     type: mongoose.Schema.Types.Mixed,
     required: true,
+  },
+  assignedTo: {
+    type: String,
   },
 });
 

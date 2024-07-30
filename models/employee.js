@@ -10,7 +10,7 @@ const employeeSchema = new mongoose.Schema({
   code: String,
   tickets: [
     {
-      type: mongoose.Schema.Types.ObjectId,
+      type: String,
       ref: "Ticket",
     },
   ],
