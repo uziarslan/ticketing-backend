@@ -24,6 +24,7 @@ const seedData = async (req, res) => {
   if (!mainPage || !subPages) {
     return res.status(400).json({ error: "Data not found" });
   }
+  console.log("Hitting the seedDate");
   res.status(200).json({ mainPage, subPages });
 };
 
