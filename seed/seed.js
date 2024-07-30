@@ -17,7 +17,7 @@ module.exports.mainPage = [
       "Event support",
       "Inquiry: I am wondering if we have something to meet my need...",
       "Event Tech Loan Request",
-      "Other:",
+      "Email Support Request",
     ],
   },
 ];
@@ -54,9 +54,7 @@ module.exports.subPages = {
     {
       type: "select",
       heading: "If you selected IPad or Laptop, how many do you need?",
-      options: [
-        //   Enter the selects options
-      ],
+      options: ["1", "2", "3", "4", "5"],
     },
     {
       type: "text",
@@ -147,7 +145,7 @@ module.exports.subPages = {
         "Palladium 3rd Floor",
         "Wasserstaff Out of Office Calendar",
         "Employer Presentations",
-        "Other: ",
+        "Other",
       ],
     },
     {
@@ -162,7 +160,18 @@ module.exports.subPages = {
         "gradstudentcareer@nyu.edu",
         "oncampusemployment@nyu.edu",
         "career.alumni@nyu.edu",
-        //So on
+        "wassermaninternshipgrant@nyu.edu",
+        "peacecorps@nyu.edu",
+        "sps.wasserman@nyu.edu",
+        "global.internships@nyu.edu",
+        "career.ambassadors@nyu.edu",
+        "violetnetwork@nyu.edu",
+        "wasserstaff-group@nyu.edu",
+        "wasserstaff-main@nyu.edu",
+        "wasserstaff-brooklyn@nyu.edu",
+        "wasserman.survey@nyu.edu",
+        "eventteam@nyu.edu",
+        "wassertech-group@nyu.edu",
       ],
     },
     {
@@ -175,6 +184,154 @@ module.exports.subPages = {
       type: "checkbox",
       heading: "Will your new hire require the following software",
       options: ["Jabber", "Zoom", "Other:"],
+    },
+  ],
+  "Computer or Computer Accessories broken and/or slow": [
+    {
+      type: "text",
+      heading: "Please describe the computer challenge in detail.",
+    },
+    {
+      type: "radio",
+      heading:
+        "Have you restarted or shut-down your computer recently (last 5 to 7 days)?",
+      options: ["Yes", "No"],
+    },
+    {
+      type: "text",
+      heading:
+        "Are there any days/times that you are unavailable for your computer to be troubleshooted?",
+      subHeading:
+        "Please indicate whether there are times that the team should avoid working on your computer.",
+    },
+  ],
+  "Software, Hardware or Application question": [
+    {
+      type: "text",
+      heading: "What is the name of the software, hardware or application?",
+      subHeading: "E.g. My Adobe converter isn't working.",
+    },
+    {
+      type: "text",
+      heading:
+        "Please indicate your inquiry, include as much detail as possible.",
+      subHeading:
+        "E.g. I would like to live stream during an upcoming Webinar.  Is this possible?",
+    },
+    {
+      type: "text",
+      heading: "Are there any time constraints related to this inquiry?",
+      subHeading:
+        "E.g. I need this software, technology, or application for my work on X date.",
+    },
+  ],
+  "Event support": [
+    {
+      type: "text",
+      heading: "What is the address/location of the event?",
+    },
+    {
+      type: "date",
+      heading: "What is the date of the event?",
+    },
+    {
+      type: "text",
+      heading: "What technology/equipment is needed?",
+      subHeading: "E.g. Laptops or iPads for Kiosk check-in.",
+    },
+    {
+      type: "time",
+      heading: "What is the start time of the event?",
+    },
+    {
+      type: "time",
+      heading: "What is the end time of the event?",
+    },
+    {
+      type: "radio",
+      heading: "Is coverage/support required for the entire event?",
+      subHeading:
+        "E.g. Can we provide set-up/break-down support only, without coverage during the duration of the event.",
+      options: ["Yes", "No"],
+    },
+  ],
+  "Inquiry: I am wondering if we have something to meet my need...": [
+    {
+      type: "text",
+      heading: "Please explain your inquiry in detail.",
+    },
+  ],
+  "Event Tech Loan Request": [
+    {
+      type: "checkbox",
+      heading: "What item(s) do you need to borrow?",
+      subHeading: "Check all that apply.",
+      options: [
+        "Laptop",
+        "Ipad",
+        "Mouse/Mice",
+        "Extension Cord",
+        "Power Cord",
+        "Power Stripe",
+        "Other",
+      ],
+    },
+    {
+      type: "text",
+      heading: "How many items do you need to borrow?",
+      subHeading:
+        "Please indicate the quantity of each item selected in the previous question.",
+    },
+    {
+      type: "date",
+      heading: "What date do you need the tech loan?",
+      subHeading:
+        "Note:  The expectation is that you are able to receive the requested items at the Wasserman Union Square office unless otherwise determined.",
+    },
+    {
+      type: "time",
+      heading:
+        "What time do you need the tech loan, on the date indicated above?",
+      subHeading:
+        "Note:  The expectation is that you are able to receive the requested items at the Wasserman Union Square office unless otherwise determined.",
+    },
+    {
+      type: "date",
+      heading: "What date will you return the tech loan?",
+      subHeading:
+        "Note:  The expectation is that you are able to return the requested items at the Wasserman Union Square office unless otherwise determined.",
+    },
+    {
+      type: "time",
+      heading: "What time will you return the tech loan?",
+      subHeading:
+        "Note:  The expectation is that you are able to return the requested items at the Wasserman Union Square office unless otherwise determined.",
+    },
+    {
+      type: "radio",
+      heading:
+        "Will this event/request also require on-site support from the Operations Team?",
+      subHeading:
+        "Please note that support is not guaranteed, but we will do our best.",
+      options: ["Yes", "No"],
+    },
+  ],
+  "Email Support Request": [
+    {
+      type: "text",
+      heading: "Your Name",
+    },
+    {
+      type: "text",
+      heading: "You want to request for?",
+    },
+    {
+      type: "text",
+      heading: "Comments releated to the issue",
+    },
+    {
+      type: "text",
+      heading: "Email",
     },
   ],
 };

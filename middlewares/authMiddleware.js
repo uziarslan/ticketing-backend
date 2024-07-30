@@ -24,6 +24,10 @@ const protect = async (req, res, next) => {
         user = await Admin.findById(decoded.id);
       }
 
+      if (!user) {
+        return res.status(404).json({ Error: "User not found!" });
+      }
+
       req.user = user;
 
       next();

@@ -7,8 +7,8 @@ const TOKEN = process.env.MAIL_TRAP_TOKEN;
 const ENDPOINT = process.env.MAILTRAP_END_POINT;
 const client = new MailtrapClient({ endpoint: ENDPOINT, token: TOKEN });
 const sender = {
-  email: "info@bigtristate.com",
-  name: "NYU",
+  email: "info@wassermancenter.com",
+  name: "Wasserman",
 };
 
 const generateToken = (id) => {
@@ -40,7 +40,7 @@ exports.register = async (req, res) => {
       client.send({
         from: sender,
         to: [{ email: foundEmployee.username }],
-        template_uuid: "83cbc93f-4b52-4557-a450-d03a0e1b01f0",
+        template_uuid: "ce4d822b-3d54-4cbd-b647-6e174c681907",
         template_variables: {
           otp: otp,
         },
@@ -63,7 +63,7 @@ exports.register = async (req, res) => {
       client.send({
         from: sender,
         to: [{ email: employee.username }],
-        template_uuid: "83cbc93f-4b52-4557-a450-d03a0e1b01f0",
+        template_uuid: "ce4d822b-3d54-4cbd-b647-6e174c681907",
         template_variables: {
           otp: otp,
         },
