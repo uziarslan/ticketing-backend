@@ -59,7 +59,7 @@ const createTicket = async (req, res) => {
 
   client.send({
     from: sender,
-    to: [{ email: "chaudhryuzairarslan2000@gmail.com" }],
+    to: [{ email: "wassertech-group@nyu.edu" }],
     template_uuid: "f81e7006-270f-4a0a-a54e-962c7ef80a9a",
     template_variables: {
       ticket: ticket,
@@ -163,7 +163,7 @@ const addComment = async (req, res) => {
   } else {
     client.send({
       from: sender,
-      to: [{ email: "chaudhryuzairarslan2000@gmail.com" }],
+      to: [{ email: "wassertech-group@nyu.edu" }],
       template_uuid: "f049a5db-1cd4-4444-976e-c1639182fa37",
       template_variables: {
         ticket: newticket,
