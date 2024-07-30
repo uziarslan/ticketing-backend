@@ -24,7 +24,7 @@ const seedData = async (req, res) => {
   if (!mainPage || !subPages) {
     return res.status(400).json({ error: "Data not found" });
   }
-  res.json({ mainPage, subPages });
+  res.status(200).json({ mainPage, subPages });
 };
 
 module.exports = { seedData, verifyCode };
