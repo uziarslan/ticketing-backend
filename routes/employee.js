@@ -41,7 +41,7 @@ router.post(
 router.get(
   "/seed",
   wrapAsync(async (req, res) => {
-    res.json({ mainPage, subPages });
+    res.status(200).json({ mainPage, subPages });
   })
 );
 
