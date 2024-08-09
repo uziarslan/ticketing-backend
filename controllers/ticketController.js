@@ -79,8 +79,8 @@ const getUserTickets = async (req, res) => {
 
 const getAllTickets = async (req, res) => {
   const t = await Ticket.find({});
-  const openedTickets = t.filter((ticket) => ticket.status === "opened");
-  const tickets = t.filter((ticket) => ticket.status !== "opened");
+  const openedTickets = t.filter((ticket) => ticket.status === "opened" || ticket.status === "processing");
+  const tickets = t.filter((ticket) => ticket.status === "closed");
   res.status(200).json({ openedTickets, tickets });
 };
 
