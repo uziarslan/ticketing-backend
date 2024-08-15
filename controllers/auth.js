@@ -30,11 +30,11 @@ exports.register = async (req, res) => {
     return res.status(400).json({ error: "Please enter username." });
   }
 
-  // const requiredEmail = username.split("@")[1];
+  const requiredEmail = username.split("@")[1];
 
-  // if (requiredEmail !== "nyu.edu") {
-  //   return res.status(400).json({ error: "Unauthorized" });
-  // }
+  if (requiredEmail !== "nyu.edu") {
+    return res.status(400).json({ error: "Unauthorized" });
+  }
 
   const foundEmployee = await Employee.findOne({ username });
 
