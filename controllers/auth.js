@@ -26,58 +26,60 @@ exports.register = async (req, res) => {
   const { username } = req.body;
   const otp = generateOTP();
 
-  try {
-    if (!username) {
-      return res.status(400).json({ error: "Please enter username." });
-    }
+  if (!username) {
+    return res.status(400).json({ error: "Please enter username." });
+  }
 
-    const foundEmployee = await Employee.findOne({ username });
+  const requiredEmail = username.split("@")[1];
 
-    if (foundEmployee) {
-      foundEmployee.code = otp;
-      await foundEmployee.save();
+  if (requiredEmail !== "nyu.edu") {
+    return res.status(400).json({ error: "Unauthorized" });
+  }
 
-      client.send({
-        from: sender,
-        to: [{ email: foundEmployee.username }],
-        template_uuid: "ce4d822b-3d54-4cbd-b647-6e174c681907",
-        template_variables: {
-          otp: otp,
-        },
-      });
+  const foundEmployee = await Employee.findOne({ username });
 
-      return res.status(201).json({
-        _id: foundEmployee._id,
-        name: foundEmployee.name,
-        email: foundEmployee.email,
-        token: generateToken(foundEmployee._id),
-      });
-    } else {
-      const employee = new Employee({
-        username,
-        code: otp,
-      });
+  if (foundEmployee) {
+    foundEmployee.code = otp;
+    await foundEmployee.save();
 
-      await employee.save();
+    client.send({
+      from: sender,
+      to: [{ email: foundEmployee.username }],
+      template_uuid: "ce4d822b-3d54-4cbd-b647-6e174c681907",
+      template_variables: {
+        otp: otp,
+      },
+    });
 
-      client.send({
-        from: sender,
-        to: [{ email: employee.username }],
-        template_uuid: "ce4d822b-3d54-4cbd-b647-6e174c681907",
-        template_variables: {
-          otp: otp,
-        },
-      });
+    return res.status(201).json({
+      _id: foundEmployee._id,
+      name: foundEmployee.name,
+      email: foundEmployee.email,
+      token: generateToken(foundEmployee._id),
+    });
+  } else {
+    const employee = new Employee({
+      username,
+      code: otp,
+    });
 
-      return res.status(201).json({
-        _id: employee._id,
-        name: employee.name,
-        email: employee.email,
-        token: generateToken(employee._id),
-      });
-    }
-  } catch (error) {
-    res.status(500).json({ message: error._message });
+    await employee.save();
+
+    client.send({
+      from: sender,
+      to: [{ email: employee.username }],
+      template_uuid: "ce4d822b-3d54-4cbd-b647-6e174c681907",
+      template_variables: {
+        otp: otp,
+      },
+    });
+
+    return res.status(201).json({
+      _id: employee._id,
+      name: employee.name,
+      email: employee.email,
+      token: generateToken(employee._id),
+    });
   }
 };
 
