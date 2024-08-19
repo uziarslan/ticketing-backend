@@ -18,6 +18,7 @@ const employeeRoutes = require("./routes/employee");
 const ticketRoutes = require("./routes/ticket");
 const adminRoutes = require("./routes/adminRoutes");
 const authRoutes = require("./routes/auth");
+const rentCoat = require("./routes/rentCoat");
 const ExpressError = require("./utils/ExpressError");
 const cors = require("cors");
 const wrapAsync = require("./utils/wrapAsync");
@@ -96,6 +97,7 @@ passport.deserializeUser(async (data, done) => {
 // Route handler
 app.use(employeeRoutes);
 app.use(ticketRoutes);
+app.use(rentCoat);
 app.use("/api/auth", adminRoutes);
 app.use("/api/auth", authRoutes);
 
