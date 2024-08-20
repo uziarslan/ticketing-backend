@@ -31,8 +31,28 @@ const handleFormSubmit = async (req, res) => {
   res.status(response.status);
 };
 
+const askQuestion = async (req, res) => {
+  const { question } = req.body;
+  const { status, data } = await axios.post(
+    `${ENDPOINT}/chatbot-api.php`,
+    qs.stringify({ question }),
+    {
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    }
+  );
+
+  if (status === 200) {
+    return res.status(200).json(data);
+  }
+
+  res.status(status);
+};
+
 module.exports = {
   fetchCoat,
   borrowList,
   handleFormSubmit,
+  askQuestion,
 };
